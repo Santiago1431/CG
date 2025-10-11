@@ -1,76 +1,62 @@
-
-
-👾 [nome] - alguma coisa! 🎮
+👾 RICK: ECOS DO VAZIO - Um Metroidvania de Sobrevivência em Ruínas Alienígenas 🎮
 <div align="center">
 <img src="URL_PARA_UMA_IMAGEM_BONITA_DO_SEU_JOGO" alt="Screenshot ou Logo do Jogo" width="600"/>
 
-
-
-✨ Feito  para a matéria de Computação Gráfica. ✨
+✨ Feito  para a matéria de Computação Gráfica na Universidade Federal de Alfenas.✨
 </div>
 
-🚀 Sobre o Projeto
-Bem-vindos ao [Nome do Seu Jogo]! Este projeto é a nossa incursão no mundo da criação de jogos 2D utilizando a Unity Engine para a disciplina de Computação Gráfica.
+---
 
-Nosso objetivo foi aplicar os conceitos aprendidos em sala de aula, e o o tema de ficção ciêntifica.
+## 🚀 Sobre o Projeto
+Bem-vindos a **Rick: Ecos do Vazio**! Este projeto é a nossa incursão no mundo da criação de jogos 2D do gênero **Metroid** com elementos de **Ação e Aventura**, desenvolvido na Unity Engine para a disciplina de Computação Gráfica.
 
-🌟 O que esperar?
-[-]: Gráficos pixelArt e uma estética visual Retro.
+A premissa gira em torno de Rick Carson, um astronauta da NASA, forçado a explorar uma vasta base alienígena, a "Nexus Prime", para recuperar componentes vitais de sua nave.
 
-[-]: Uma jogabilidade simples e objetica, focada no combate e puzzles.
+Nosso objetivo foi aplicar os conceitos de Computação Gráfica em um tema de **Ficção Científica** e sobrevivência , buscando uma jogabilidade fluida e responsiva.
 
-[-]: Sprites 2D grande Parte em Assets.
+## 🌟 O que esperar?
+* **Gênero Metroid:** Um mapa interconectado e linear, onde a progressão é desbloqueada pela obtenção de novas habilidades e equipamentos.
+* **Estética Visual Sombria:** **Pixel Art 2D** com paleta de cores dominada por tons frios (cinza, azul-marinho, roxo) que reforçam a atmosfera de isolamento e ruína tecnológica.
+* **Combate Tático:** Jogabilidade focada em *hit-and-run* (atacar e recuar) contra entidades hostis e chefões desafiadores ("Os Governantes do Vácuo").
+* **Progressão de Personagem:** Implementação de um sistema de melhorias para o traje de Rick (Dash Aéreo, Salto Duplo, Fóton Concentrado) que alteram mobilidade e poder de combate.
+* **Estilo Sonoro Atmosférico:** Trilha sonora eletrônica ambiental e Industrial que amplifica a sensação de solidão na exploração e a urgência no combate.
 
-🛠️ Tecnologias e Ferramentas
-Ferramenta	Uso no Projeto
-Unity Engine [Versão]	O coração do projeto e motor de jogo principal.
-C#	Linguagem de scripting para toda a lógica de jogo.
+## 🛠️ Tecnologias e Ferramentas
+| Ferramenta | Uso no Projeto |
+| :--- | :--- |
+| **Unity Engine [Versão]** | O coração do projeto e motor de jogo principal, focado no desenvolvimento 2D. |
+| **C#** | Linguagem de scripting para toda a lógica de jogo, mecânicas (combate, movimentação) e sistema de progressão. |
 
-Exportar para as Planilhas
-🖼️ Aspectos de Computação Gráfica Aplicados
-Esta seção é crucial! Destaque o que você aprendeu e implementou.
+## ⚙️ Como Jogar (e Testar!)
+### 📝 Pré-Requisitos
+---------------------.
 
-Iluminação Avançada: Utilização de Lightmaps (Mapas de Luz) para luz estática e Global Illumination (GI) em tempo real, garantindo sombras suaves e realistas.
+### ▶️ Instruções
+---------
 
-Texturização PBR: Uso de textures baseadas em física (Physically Based Rendering), incluindo mapas de Albedo, Normal, Metallic e Smoothness/Roughness para materiais com visual de alta fidelidade.
+<!-- [ ### 🕹️ Controles
+| Ação | Tecla Padrão |
+| :--- | :--- |
+| **Movimentar Personagem** | W, A, S, D ou Setas [cite: 39] |
+| **Pular** | Barra de Espaço |
+| **Atirar (Tiro Básico)** | [cite_start]Botão Esquerdo do Mouse / Tecla Z [cite: 39] |
+| **Usar Habilidade/Acessório** | Tecla Shift / Tecla E |
+| **Pausar/Abrir Menu** | ESC |
+| **Interagir/Coletar** | [cite_start]Tecla F (Usado para Coletar Itens [cite: 107] [cite_start]e solucionar Puzzles [cite: 44]) |
 
-Efeitos Visuais (Post-Processing): Aplicação de efeitos como Bloom, Ambient Occlusion e Color Grading para dar o toque final e atmosférico ao jogo.
+-->
 
-Shaders Personalizados: Criação de shaders customizados em Shader Graph/HLSL para implementar [detalhe, ex: efeito de dissolução, água animada, ou contorno (outline) nos personagens].
+## 👥 Desenvolvedores
+Projeto desenvolvido pelos discentes:
 
-Otimização Gráfica: Técnicas como Occlusion Culling para garantir um bom desempenho em framerate.
+| Nome | Função | Contato |
+| :--- | :--- | :--- |
+| Maria Luiza A. Belarmino  | [Programador(a)] | [E-mail] |
+| Bianca Dyandra R. G. de Farias [cite: 2] | [Programador(a)] | [E-mail] |
+| Eurico S. C. Rodrigues [cite: 2] | [Programador(a)] | [E-mail ] 
+| João Gabriel M. Lopes [cite: 2] | [Programador(a)] | [E-mail] |
 
-⚙️ Como Jogar (e Testar!)
-📝 Pré-Requisitos
-Ter a Unity Hub e a Unity Engine [Versão] instaladas.
-
-
-▶️ Instruções
-Clone este repositório:
-
-Bash
-
-git clone https://docs.github.com/pt/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
-Abra o projeto no Unity Hub, selecionando a pasta clonada.
-
-Vá para a Scene principal, geralmente chamada de [Nome da Scene Principal].
-
-Pressione o botão Play (▶️) no editor da Unity.
-
-🕹️ Controles
-
-
-
-👥 Desenvolvedores
-Projeto desenvolvido por:
-
-Nome	Função	Contato
-[Seu Nome Aqui]	Programador Principal & Artista Gráfico	[Seu E-mail]
-[Nome do Colega 1]	Especialista em Shaders/Iluminação	[E-mail do Colega]
-[Nome do Colega 2]	Nivelamento e Otimização	[E-mail do Colega]
-
-
-🎓 Agradecimentos
+## 🎓 Agradecimentos
 Agradecemos ao professor(a) [Nome do Professor(a)] pelo suporte e por nos guiar através dos conceitos fundamentais de Computação Gráfica que tornaram este projeto possível!
 
-✨ Esperamos que você se divirta jogando tanto quanto nós nos divertimos criando! ✨
+✨ Esperamos que você se divirta explorando os **Ecos do Vazio** tanto quanto nós nos divertimos criando! ✨
