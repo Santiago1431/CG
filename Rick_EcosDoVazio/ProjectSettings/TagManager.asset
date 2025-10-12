@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - No Colision
   - Water
   - UI
   - Ground
@@ -40,6 +40,21 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 110277799
+    locked: 0
+  - name: Background2
+    uniqueID: 1281995313
+    locked: 0
+  - name: Characters
+    uniqueID: 1483457251
+    locked: 0
+  - name: Foreground
+    uniqueID: 4234363097
+    locked: 0
+  - name: Doors
+    uniqueID: 3436167389
     locked: 0
   m_RenderingLayers:
   - Default
