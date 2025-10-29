@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
 
     public Animator animator;
+
+    private bool canDoubleJump;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,9 +36,17 @@ public class PlayerController : MonoBehaviour
 
         isOnGround = Physics2D.OverlapCircle(groundPoint.position, 0.2f, whatIsGround);
 
-        if (Input.GetButtonDown("Jump") && isOnGround)
-        {
-            rgb.linearVelocity = new Vector2(rgb.linearVelocity.x, jumpForce);
+        if (Input.GetButtonDown("Jump") && (isOnGround || canDoubleJump)){
+            if (isOnGround){
+                canDoubleJump = true;
+            }else
+            {
+                canDoubleJump = false;
+                animator.SetTrigger("doubleJump");
+            }
+
+
+                rgb.linearVelocity = new Vector2(rgb.linearVelocity.x, jumpForce);
         }
 
         animator.SetBool("isOnGround", isOnGround);
