@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask whatIsGround;
 
     public Animator animator;
+
+    public BulletController shotToFire;
+    public Transform shotPoint;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,6 +41,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isOnGround)
         {
             rgb.linearVelocity = new Vector2(rgb.linearVelocity.x, jumpForce);
+        }
+
+        // Shooting
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
+            animator.SetTrigger("shotFired");
         }
 
         animator.SetBool("isOnGround", isOnGround);
