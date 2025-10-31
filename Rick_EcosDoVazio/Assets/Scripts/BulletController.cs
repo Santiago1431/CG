@@ -22,7 +22,7 @@ public class BulletController : MonoBehaviour
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
         }
-        
+
         Destroy(gameObject);
     }
 
