@@ -303,6 +303,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraControll
   boundBox: {fileID: 242446416}
+--- !u!1 &603240410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603240411}
+  m_Layer: 7
+  m_Name: Shot Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603240411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603240410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.06, y: 0.119, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 904560659}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &864661064
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +394,7 @@ GameObject:
   - component: {fileID: 868955134}
   - component: {fileID: 868955133}
   - component: {fileID: 868955135}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: player-idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +704,7 @@ GameObject:
   - component: {fileID: 904560659}
   - component: {fileID: 904560658}
   - component: {fileID: 904560660}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -722,6 +753,8 @@ Transform:
   m_Children:
   - {fileID: 868955132}
   - {fileID: 1742841937}
+  - {fileID: 603240411}
+  - {fileID: 2023571584}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &904560660
@@ -745,6 +778,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 868955135}
+  shotToFire: {fileID: 7701770221360702465, guid: 65d61977fd9c398ad883df1712589302, type: 3}
+  shotPoint: {fileID: 603240411}
+  normalPlayerModel: {fileID: 868955131}
+  ballPlayerModel: {fileID: 868955131}
+  rollSpeed: 8
+  rollJumpForce: 20
+  doubleTapTimeWindow: 0.3
+  normalCollider: {fileID: 868955133}
+  rollCollider: {fileID: 2023571583}
 --- !u!1 &1499382219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,7 +1651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1742841937}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: groundPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2054,6 +2096,74 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2023571582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2023571584}
+  - component: {fileID: 2023571583}
+  m_Layer: 8
+  m_Name: Ball-Colisor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!58 &2023571583
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023571582}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!4 &2023571584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023571582}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 904560659}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2112454329
 GameObject:
   m_ObjectHideFlags: 0
