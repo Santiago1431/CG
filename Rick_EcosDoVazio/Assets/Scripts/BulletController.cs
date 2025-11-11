@@ -11,19 +11,31 @@ public class BulletController : MonoBehaviour
 
     public GameObject impactEffect;
 
+    public int damageBullet;
+
     void Update()
     {
         theRB.linearVelocity = moveDir * bulletSpeed;
+        damageBullet = 1;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(impactEffect != null)
+        if (impactEffect != null)
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
         }
 
         Destroy(gameObject);
+
+        if (other.CompareTag("Enemy"))
+        {
+            PatrulEnemi enemy = other.GetComponent<PatrulEnemi>();
+            if (enemy != null)
+            {
+                enemy.DamageEnemy(damageBullet);
+            }
+        }
     }
 
     private void OnBecameInvisible()

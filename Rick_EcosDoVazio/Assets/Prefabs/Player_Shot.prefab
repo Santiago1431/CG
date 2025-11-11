@@ -195,3 +195,4 @@ MonoBehaviour:
   theRB: {fileID: 3043659687966645797}
   moveDir: {x: 1, y: 0}
   impactEffect: {fileID: 593168625889145938, guid: 4d255795b786ed1229a4ffb28cc702f3, type: 3}
+  damageBullet: 1
