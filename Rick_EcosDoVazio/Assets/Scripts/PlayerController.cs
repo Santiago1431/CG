@@ -54,11 +54,19 @@ public class PlayerController : MonoBehaviour
     private float timeOfLastPress = -1.0f; // Para o double-tap
     private bool isRolling = false; // Nossa variável de ESTADO
 
+    public PlayerInventory inventory;
+
     
     void Start()
     {
         // Garante que o jogador comece no modo normal
         ExitRollMode();
+
+        inventory = GetComponentInParent<PlayerInventory>();
+        if (inventory == null)
+        {
+            Debug.LogError("PlayerInventory não encontrado no objeto pai ou neste objeto!");
+        }
     }
 
     // Update is called once per frame
@@ -77,6 +85,7 @@ public class PlayerController : MonoBehaviour
         // 2. LÓGICA DE TRANSIÇÃO DE ESTADO
         // (Verifica se deve ENTRAR ou SAIR do modo de rolagem)
 
+        bool canStartRoll = (inventory != null) ? inventory.canRoll : false;
         if (!isRolling)
         {
             // Se NÃO está rolando, checa por double-tap para baixo
@@ -85,8 +94,11 @@ public class PlayerController : MonoBehaviour
                 float timeSinceLastPress = Time.time - timeOfLastPress;
                 if (timeSinceLastPress <= doubleTapTimeWindow)
                 {
-                    // É um double-tap! Entra no modo de rolagem
-                    EnterRollMode();
+                    if (canStartRoll)
+                    {
+                        // É um double-tap! Entra no modo de rolagem
+                        EnterRollMode();
+                    }
                 }
                 timeOfLastPress = Time.time;
             }
@@ -134,8 +146,8 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = Vector3.one;
 
 
-
-            if (Input.GetButtonDown("Jump") && (isOnGround || canDoubleJump))
+            bool doubleJumpUnlocked = (inventory != null) ? inventory.canDoubleJump : false;
+            if (Input.GetButtonDown("Jump") && (isOnGround || canDoubleJump && doubleJumpUnlocked))
             {
                 if (isOnGround)
                 {
@@ -152,12 +164,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-// Shooting (LÓGICA MODIFICADA)
-        if (Input.GetButtonDown("Fire1") && !isRolling)
+        // Shooting (LÓGICA MODIFICADA)
+        bool shotUnlocked = (inventory != null) ? inventory.canShoot : false;
+
+        if (Input.GetButtonDown("Fire1") && !isRolling && shotUnlocked)
         {
             Vector2 shootDirection = Vector2.zero;
             Transform currentShotPoint = shotPoint; // Ponto de disparo padrão (horizontal)
-            
+
             if (isAimingUp && isOnGround)
             {
                 // Se estiver mirando para cima, muda a direção e o ponto de origem.
@@ -174,7 +188,7 @@ public class PlayerController : MonoBehaviour
                 // Mantenha o tiro na direção que o personagem está virado (transform.localScale.x)
                 shootDirection = new Vector2(transform.localScale.x, 0f);
             }
-            
+
             // Instancia o tiro com a direção e o ponto de origem (novo) calculados
             Instantiate(shotToFire, currentShotPoint.position, currentShotPoint.rotation).moveDir = shootDirection;
             animator.SetTrigger("shotFired");
