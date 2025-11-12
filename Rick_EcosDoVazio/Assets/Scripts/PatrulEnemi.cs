@@ -11,6 +11,8 @@ public class PatrulEnemi : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     private Animator animator;
 
+
+
     private bool Dead = false;
 
 
@@ -35,10 +37,14 @@ public class PatrulEnemi : MonoBehaviour
     {
         if (other.CompareTag("PatrolLimit"))
         {
-            speed = -speed;
-            Vector3 scale = transform.localScale;
-            scale.x *= -1;
-            transform.localScale = scale;
+            flip();
+        }
+
+        PlayerLife playerLife = other.GetComponentInParent<PlayerLife>();
+        if (playerLife != null)
+        {
+            playerLife.TakeDamage(1); // Causa 1 ponto de dano ao jogador
+            flip();
         }
     }
     void move()
@@ -46,6 +52,7 @@ public class PatrulEnemi : MonoBehaviour
         rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
 
     }
+
 
 
     public void DamageEnemy(int damageBullet)
@@ -60,6 +67,17 @@ public class PatrulEnemi : MonoBehaviour
         }
     }
 
+    public void flip()
+    {
+        speed = -speed;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+
+
+
+
 
 
     //IEnumerator to make the enemy flash when damaged
@@ -69,6 +87,8 @@ public class PatrulEnemi : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         spriteRenderer.color = Color.white;
     }
+
+    
 
     void waitingDeath()
     {
