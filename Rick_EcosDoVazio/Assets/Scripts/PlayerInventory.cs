@@ -8,7 +8,9 @@ public class PlayerInventory : MonoBehaviour
     public bool canDoubleJump = false;
     public bool canShoot = false;
     public bool canRoll = false;
-
+    
+    [Header("Audio Manager")]
+    public AudioManager audioManager;
     // Funções públicas para desbloquear cada habilidade separadamente
     public void UnlockDoubleJump()
     {
@@ -44,7 +46,8 @@ public class PlayerInventory : MonoBehaviour
     {
         hasKey = true;
         Debug.Log("Chave coletada!");
-        // Opcional: Adicione aqui efeitos sonoros ou visuais de coleta.
+        audioManager.PlaySFX(audioManager.keyCollectSFX);
+        
     }
 
     // Função para usar a chave (se necessário, para consumo)

@@ -57,6 +57,10 @@ public class PlayerController : MonoBehaviour
     public PlayerInventory inventory;
 
     
+    // AudioManager 
+    public AudioManager audioManager;
+
+    
     void Start()
     {
         // Garante que o jogador comece no modo normal
@@ -131,6 +135,7 @@ public class PlayerController : MonoBehaviour
             {
 
                 rgb.linearVelocity = new Vector2(rgb.linearVelocity.x, rollJumpForce);
+                
 
             }
         }
@@ -159,8 +164,8 @@ public class PlayerController : MonoBehaviour
                     animator.SetTrigger("doubleJump");
                 }
 
-
                 rgb.linearVelocity = new Vector2(rgb.linearVelocity.x, jumpForce);
+                audioManager.PlaySFX(audioManager.jumpSFX);
             }
         }
 
@@ -180,6 +185,7 @@ public class PlayerController : MonoBehaviour
                 if (shotPointUp != null && animator.GetBool("isAimingUp"))
                 {
                     currentShotPoint = shotPointUp; // <--- MUDANÇA: Usa o ponto de tiro para cima
+                    
                 }
             }
             else
@@ -191,6 +197,7 @@ public class PlayerController : MonoBehaviour
 
             // Instancia o tiro com a direção e o ponto de origem (novo) calculados
             Instantiate(shotToFire, currentShotPoint.position, currentShotPoint.rotation).moveDir = shootDirection;
+            currentShotPoint.gameObject.GetComponent<AudioSource>().Play();
             animator.SetTrigger("shotFired");
         }
 
@@ -221,6 +228,8 @@ public class PlayerController : MonoBehaviour
 
         // Reseta o timer do double-tap
         timeOfLastPress = -1.0f;
+
+        audioManager.PlaySFX(audioManager.rollSFX);
 
         Debug.Log("Entrou no modo ROLANDO!");
     }
