@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
+
     public Rigidbody2D rgb;
 
     public float moveSpeed;
@@ -19,6 +20,10 @@ public class PlayerController : MonoBehaviour
     public Transform shotPoint;
 
     private bool canDoubleJump;
+
+    // Variável interna para rastrear o estado de mirar para cima
+    private bool isAimingUp;
+    public Transform shotPointUp; // <--- NOVO: Ponto de disparo para cima
 
     // --- Variáveis Novas para Rolagem ---
     [Header("Controles de Rolagem")]
@@ -49,16 +54,32 @@ public class PlayerController : MonoBehaviour
     private float timeOfLastPress = -1.0f; // Para o double-tap
     private bool isRolling = false; // Nossa variável de ESTADO
 
+    public PlayerInventory inventory;
+
+    
+    // AudioManager 
+    public AudioManager audioManager;
+
     
     void Start()
     {
         // Garante que o jogador comece no modo normal
         ExitRollMode();
+
+        inventory = GetComponentInParent<PlayerInventory>();
+        if (inventory == null)
+        {
+            Debug.LogError("PlayerInventory não encontrado no objeto pai ou neste objeto!");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        //// 1. Lógica de Mirar para Cima (Nova Funcionalidade)
+        isAimingUp = Input.GetAxis("Vertical") > 0;
 
 
         // 1. CHECAGEM DE CHÃO 
@@ -68,6 +89,7 @@ public class PlayerController : MonoBehaviour
         // 2. LÓGICA DE TRANSIÇÃO DE ESTADO
         // (Verifica se deve ENTRAR ou SAIR do modo de rolagem)
 
+        bool canStartRoll = (inventory != null) ? inventory.canRoll : false;
         if (!isRolling)
         {
             // Se NÃO está rolando, checa por double-tap para baixo
@@ -76,8 +98,11 @@ public class PlayerController : MonoBehaviour
                 float timeSinceLastPress = Time.time - timeOfLastPress;
                 if (timeSinceLastPress <= doubleTapTimeWindow)
                 {
-                    // É um double-tap! Entra no modo de rolagem
-                    EnterRollMode();
+                    if (canStartRoll)
+                    {
+                        // É um double-tap! Entra no modo de rolagem
+                        EnterRollMode();
+                    }
                 }
                 timeOfLastPress = Time.time;
             }
@@ -110,6 +135,7 @@ public class PlayerController : MonoBehaviour
             {
 
                 rgb.linearVelocity = new Vector2(rgb.linearVelocity.x, rollJumpForce);
+                
 
             }
         }
@@ -125,8 +151,8 @@ public class PlayerController : MonoBehaviour
                 transform.localScale = Vector3.one;
 
 
-
-            if (Input.GetButtonDown("Jump") && (isOnGround || canDoubleJump))
+            bool doubleJumpUnlocked = (inventory != null) ? inventory.canDoubleJump : false;
+            if (Input.GetButtonDown("Jump") && (isOnGround || canDoubleJump && doubleJumpUnlocked))
             {
                 if (isOnGround)
                 {
@@ -138,23 +164,52 @@ public class PlayerController : MonoBehaviour
                     animator.SetTrigger("doubleJump");
                 }
 
-
                 rgb.linearVelocity = new Vector2(rgb.linearVelocity.x, jumpForce);
+                audioManager.PlaySFX(audioManager.jumpSFX);
             }
         }
 
-        // Shooting
-        if (Input.GetButtonDown("Fire1") && !isRolling)
+        // Shooting (LÓGICA MODIFICADA)
+        bool shotUnlocked = (inventory != null) ? inventory.canShoot : false;
+
+        if (Input.GetButtonDown("Fire1") && !isRolling && shotUnlocked)
         {
-            Instantiate(shotToFire, shotPoint.position, shotPoint.rotation).moveDir = new Vector2(transform.localScale.x, 0f);
+            Vector2 shootDirection = Vector2.zero;
+            Transform currentShotPoint = shotPoint; // Ponto de disparo padrão (horizontal)
+
+            if (isAimingUp && isOnGround)
+            {
+                // Se estiver mirando para cima, muda a direção e o ponto de origem.
+                shootDirection = Vector2.up; // Equivalente a new Vector2(0f, 1f)
+
+                if (shotPointUp != null && animator.GetBool("isAimingUp"))
+                {
+                    currentShotPoint = shotPointUp; // <--- MUDANÇA: Usa o ponto de tiro para cima
+                    
+                }
+            }
+            else
+            {
+                // TIRO HORIZONTAL!
+                // Mantenha o tiro na direção que o personagem está virado (transform.localScale.x)
+                shootDirection = new Vector2(transform.localScale.x, 0f);
+            }
+
+            // Instancia o tiro com a direção e o ponto de origem (novo) calculados
+            Instantiate(shotToFire, currentShotPoint.position, currentShotPoint.rotation).moveDir = shootDirection;
+            currentShotPoint.gameObject.GetComponent<AudioSource>().Play();
             animator.SetTrigger("shotFired");
         }
 
+        // 4. ATUALIZAÇÃO DO ANIMATOR
+        animator.SetBool("isAimingUp", isAimingUp);
 
         animator.SetFloat("speed", Mathf.Abs(currentSpeed));
         animator.SetBool("isOnGround", isOnGround);
         animator.SetFloat("speed", Mathf.Abs(rgb.linearVelocity.x));
     }
+
+
 
     private void EnterRollMode()
     {
@@ -173,6 +228,8 @@ public class PlayerController : MonoBehaviour
 
         // Reseta o timer do double-tap
         timeOfLastPress = -1.0f;
+
+        audioManager.PlaySFX(audioManager.rollSFX);
 
         Debug.Log("Entrou no modo ROLANDO!");
     }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class BulletController : MonoBehaviour
 {
     public float bulletSpeed;
@@ -11,19 +10,41 @@ public class BulletController : MonoBehaviour
 
     public GameObject impactEffect;
 
+    public int damageBullet;
+
     void Update()
     {
         theRB.linearVelocity = moveDir * bulletSpeed;
+        damageBullet = 1;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(impactEffect != null)
+        if (impactEffect != null)
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
         }
 
         Destroy(gameObject);
+
+        TorizoController boss  = other.GetComponentInParent<TorizoController>();
+        if (boss != null)
+        {
+            boss.LevarDano(damageBullet, other.tag);
+            Destroy(gameObject);
+            return;
+        }
+
+        if (other.CompareTag("Enemy"))
+        {
+            PatrulEnemi enemy = other.GetComponent<PatrulEnemi>();
+            if (enemy != null)
+            {
+                enemy.DamageEnemy(damageBullet);
+            }
+        }
+
+
     }
 
     private void OnBecameInvisible()
@@ -31,4 +52,5 @@ public class BulletController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    
 }

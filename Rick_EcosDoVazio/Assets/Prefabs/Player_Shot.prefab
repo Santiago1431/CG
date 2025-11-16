@@ -80,8 +80,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -60604199
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -3442273424303929756, guid: daa903a88b1dc524aa2f5ece96f3a1a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -195,3 +195,4 @@ MonoBehaviour:
   theRB: {fileID: 3043659687966645797}
   moveDir: {x: 1, y: 0}
   impactEffect: {fileID: 593168625889145938, guid: 4d255795b786ed1229a4ffb28cc702f3, type: 3}
+  damageBullet: 1

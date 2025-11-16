@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - PatrolLimit
+  - Enemy
+  - BossWeakPoint
+  - Audio
   layers:
   - Default
   - TransparentFX
@@ -14,9 +18,9 @@ TagManager:
   - Ground
   - Shot
   - Player
-  - 
-  - 
-  - 
+  - Background
+  - Enemies
+  - BossShot
   - 
   - 
   - 
@@ -55,6 +59,9 @@ TagManager:
     locked: 0
   - name: Doors
     uniqueID: 3436167389
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2346193831
     locked: 0
   m_RenderingLayers:
   - Default
