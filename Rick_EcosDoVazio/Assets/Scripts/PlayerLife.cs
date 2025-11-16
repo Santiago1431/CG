@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
@@ -26,6 +27,7 @@ public class PlayerLife : MonoBehaviour
         if (currentLife <= 0)
         {
             Debug.Log("Player Dead");
+            SceneManager.LoadScene("EndGame");
         }
     }
     
