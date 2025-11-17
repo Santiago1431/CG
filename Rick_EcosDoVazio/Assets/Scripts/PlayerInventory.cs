@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -12,12 +13,38 @@ public class PlayerInventory : MonoBehaviour
     [Header("Audio Manager")]
     public AudioManager audioManager;
     // Funções públicas para desbloquear cada habilidade separadamente
+
+
+    [Header("UI Tutorial")]
+    public TMPro.TMP_Text tutorialText;
+    public float tutorialDuration = 4f;
+
+    private void Start() {
+        tutorialText.gameObject.SetActive(false);
+    }
+    private void ShowTutorial(string message)
+    {
+        StopAllCoroutines();
+        StartCoroutine(TutorialRoutine(message));
+    }
+
+    private IEnumerator TutorialRoutine(string message)
+    {
+        tutorialText.text = message;
+        tutorialText.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(tutorialDuration);
+
+        tutorialText.gameObject.SetActive(false);
+    }
+
     public void UnlockDoubleJump()
     {
         if (!canDoubleJump)
         {
             canDoubleJump = true;
             Debug.Log("Habilidade desbloqueada: Salto Duplo!");
+            ShowTutorial("Novo Habilidade: SALTO DUPLO\nPressione ESPAÇO no ar para pular novamente!");
         }
     }
 
@@ -27,15 +54,17 @@ public class PlayerInventory : MonoBehaviour
         {
             canShoot = true;
             Debug.Log("Habilidade desbloqueada: Tiro!");
+            ShowTutorial("Nova Habilidade: TIRO\nPressione Mouse1 para disparar!");
         }
     }
-    
+
     public void UnlockRoll()
     {
         if (!canRoll)
         {
             canRoll = true;
             Debug.Log("Habilidade desbloqueada: Rolagem!");
+            ShowTutorial("Nova Habilidade: ROLAGEM\nUse ↓ + ↓ para rolar !");
         }
     }
     // Variável para rastrear se o jogador tem a chave.

@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         if (!isRolling)
         {
             // Se NÃO está rolando, checa por double-tap para baixo
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 float timeSinceLastPress = Time.time - timeOfLastPress;
                 if (timeSinceLastPress <= doubleTapTimeWindow)
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
         else // Se (isRolling == true)
         {
             // Se ESTÁ rolando, checa pela seta para cima para sair
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 ExitRollMode();
             }
