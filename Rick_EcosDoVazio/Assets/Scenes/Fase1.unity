@@ -563,6 +563,9 @@ MonoBehaviour:
   exitOffset: {x: 1, y: 0, z: 0}
   requiresKey: 1
   consumesKey: 0
+  Text: {fileID: 515555083}
+  textDuration: 4
+  message: "Este portal est\xE1 trancado. Voc\xEA precisa da chave!"
 --- !u!61 &252744338
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15897,7 +15900,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 25
-      m_TileSpriteIndex: 41
+      m_TileSpriteIndex: 51
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -17527,7 +17530,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 43
-      m_TileSpriteIndex: 43
+      m_TileSpriteIndex: 50
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -17677,7 +17680,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 29
-      m_TileSpriteIndex: 40
+      m_TileSpriteIndex: 49
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -17687,7 +17690,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 30
-      m_TileSpriteIndex: 39
+      m_TileSpriteIndex: 48
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -56363,6 +56366,22 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: d50dcbd49a15e3349919f4d771ceaaf3, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 7fb5de3ff170a464790464bcf6fecb4c, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 657
     m_Data: {fileID: 21300130, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
@@ -56442,16 +56461,32 @@ Tilemap:
     m_Data: {fileID: 21300172, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300170, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 7
+    m_Data: {fileID: 21300134, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300094, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300092, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300136, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
-  - m_RefCount: 7
-    m_Data: {fileID: 21300134, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
-  - m_RefCount: 1
     m_Data: {fileID: 21300008, guid: e8eeee797a1eb41268234a175d2079ac, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300136, guid: 1a08f9bec49c04809b03ba62a218b140, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 4981
     m_Data:
@@ -56604,6 +56639,9 @@ MonoBehaviour:
   exitOffset: {x: 1, y: 0, z: 0}
   requiresKey: 1
   consumesKey: 0
+  Text: {fileID: 515555083}
+  textDuration: 4
+  message: "Este portal est\xE1 trancado. Voc\xEA precisa da chave!"
 --- !u!61 &498177468
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57160,7 +57198,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.999992, y: -10.059097, z: -10}
+  m_LocalPosition: {x: 7.18, y: -3.5500002, z: -10}
   m_LocalScale: {x: 0.2487, y: 0.2487, z: 0.2487}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58370,6 +58408,9 @@ MonoBehaviour:
   exitOffset: {x: -2, y: 0, z: 0}
   requiresKey: 1
   consumesKey: 0
+  Text: {fileID: 515555083}
+  textDuration: 4
+  message: "Este portal est\xE1 trancado. Voc\xEA precisa da chave!"
 --- !u!1 &765872340
 GameObject:
   m_ObjectHideFlags: 0
@@ -59653,7 +59694,7 @@ Transform:
   m_GameObject: {fileID: 904560657}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 34, y: -11, z: 0}
+  m_LocalPosition: {x: 7.18, y: -3.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -61928,7 +61969,7 @@ Transform:
   m_GameObject: {fileID: 1182407833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34, y: -11, z: -10}
+  m_LocalPosition: {x: 7.18, y: -3.55, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

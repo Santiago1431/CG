@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class KeyedPortal : Portal // Herda do seu Portal.cs
 {
@@ -8,6 +9,15 @@ public class KeyedPortal : Portal // Herda do seu Portal.cs
     
     [Tooltip("Se for verdadeiro, a chave será consumida (UseKey) após o uso.")]
     public bool consumesKey = true; 
+
+    [Header("Mensagem de Portal Trancado")]
+    public TMPro.TMP_Text Text;
+    public float textDuration = 4f;
+    public string message = "Este portal está trancado. Você precisa da chave!";
+
+    private void Start() {
+        Text.gameObject.SetActive(false);
+    }
 
     // Sobrescreve a lógica de colisão para incluir a verificação da chave.
     private new void OnTriggerEnter2D(Collider2D other)
@@ -41,9 +51,27 @@ public class KeyedPortal : Portal // Herda do seu Portal.cs
             {
                 // NÃO TEM A CHAVE
                 Debug.Log("Este portal está trancado. Você precisa da chave!");
+                ShowText(message);
+                
                 // Opcional: Adicione feedback visual ou sonoro de "trancado"
             }
         }
+    }
+    private void ShowText(string message)
+    {
+        StopAllCoroutines();
+        StartCoroutine(TextRoutine(message));
+    }
+
+
+    private IEnumerator TextRoutine(string message)
+    {
+        Text.text = message;
+        Text.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(textDuration);
+
+        Text.gameObject.SetActive(false);
     }
     
     // O método Teleport (e as variáveis de destino) são herdadas do Portal.cs original.
