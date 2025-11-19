@@ -145,10 +145,17 @@ public class PlayerController : MonoBehaviour
 
             rgb.linearVelocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rgb.linearVelocity.y);
 
+            // --- Código Corrigido (Preserva a escala) ---
             if (rgb.linearVelocity.x < 0)
-                transform.localScale = new Vector3(-1f, 1f, 1f);
+            {
+                // Usa o valor de X espelhado, mas MANTÉM os valores Y e Z atuais
+                transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
             else if (rgb.linearVelocity.x > 0)
-                transform.localScale = Vector3.one;
+            {
+                // Garante que X seja positivo (sem espelhamento), mas MANTÉM os valores Y e Z
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
 
 
             bool doubleJumpUnlocked = (inventory != null) ? inventory.canDoubleJump : false;
