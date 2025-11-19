@@ -62,7 +62,7 @@ public class PlayerLife : MonoBehaviour
                 // **Game Over**
                 // Nenhum checkpoint foi salvo, então é Game Over.
                 Debug.Log("Nenhum checkpoint. Game over.");
-                SceneManager.LoadScene("EndGame");
+                SceneManager.LoadScene("EndGame2");
             }
         }
     }
