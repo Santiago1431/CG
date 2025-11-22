@@ -1,8 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PlayerLife : MonoBehaviour
 {
+    
+    public Image [] coracao;
+    public Sprite cheio;
+    public Sprite vazio;
+
     public SpriteRenderer spriteRenderer;
 
     public int maxLife;
@@ -16,12 +22,12 @@ public class PlayerLife : MonoBehaviour
 
     private Rigidbody2D rb;
 
-
     void Start()
     {
         currentLife = maxLife;
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        HealthLogic();
 
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>(); 
 
         // Se NENHUM checkpoint foi pego AINDA, o ponto de respawn
@@ -36,6 +42,7 @@ public class PlayerLife : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentLife -= damage;
+        HealthLogic();
         StartCoroutine(FlashRed());
         if (currentLife <= 0)
         {
@@ -56,6 +63,8 @@ public class PlayerLife : MonoBehaviour
                 
                 // 4. Garante que ele não esteja mais vermelho
                 spriteRenderer.color = Color.white; 
+                
+                HealthLogic();
             }
             else
             {
@@ -77,4 +86,30 @@ public class PlayerLife : MonoBehaviour
             spriteRenderer.color = Color.white;
         }
     }
+
+    void HealthLogic()
+    {
+        if(currentLife > maxLife)
+            currentLife = maxLife;
+
+        for (int i = 0; i < coracao.Length; i++)
+        {
+            if (i < currentLife)
+            {
+                coracao[i].sprite = cheio;
+                coracao[i].enabled = true;
+            }
+            else if (i < maxLife)
+            {
+                coracao[i].sprite = vazio;
+                coracao[i].enabled = true;
+            }
+            else
+            {
+                coracao[i].enabled = false;
+            }
+        }
+    }
+
+
 }
