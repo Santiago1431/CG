@@ -73,6 +73,8 @@ public class PlayerLife : MonoBehaviour
                 Debug.Log("Nenhum checkpoint. Game over.");
                 SceneManager.LoadScene("EndGame2");
             }
+            Debug.Log("Player Dead");
+            SceneManager.LoadScene("EndGame");
         }
     }
     
