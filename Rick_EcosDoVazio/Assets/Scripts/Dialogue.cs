@@ -6,47 +6,38 @@ public class Dialogue : MonoBehaviour
     public string[] speechText;
     public string actorName;
 
-    public LayerMask playerLayer;
-
-    public float radious;
+    [Header("Settings")]
+    private bool wasInteracted = false; // Flag para uso único
 
     private DialogueControl dc;
-    bool onRadious;
 
     private void Start()
     {
+        // Certifique-se de que o objeto que contém este script
+        // tem um Collider2D com 'Is Trigger' marcado.
         dc = FindObjectOfType<DialogueControl>();
     }
 
-    private void FixedUpdate()
+    // Acionado quando outro Collider2D entra no trigger deste objeto
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Interact();
-    }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Return) && onRadious)
-    {
-        dc.Speech(profile, speechText, actorName);
-        }
-    }
+        PlayerController player = other.GetComponentInParent<PlayerController>();
 
-    public void Interact()
-    {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, radious, playerLayer);
-        if (hit != null)
+        // Verifica se quem colidiu é o Player e se a interação ainda não ocorreu
+        if (player != null && !wasInteracted)
         {
-           onRadious = true;
-        }
-        else
-        {
-            onRadious = false;
+            wasInteracted = true; // Marca como interagido
+            
+            // Inicia o diálogo
+            dc.Speech(profile, speechText, actorName);
+            
+            // Desativa este script para garantir que não haja mais interações de colisão,
+            // ou pode-se desabilitar o próprio Collider2D se preferir.
+            // enabled = false; 
         }
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawWireSphere(transform.position, radious);
-    }   
-
+    
+    // Remova ou ignore o código de FixedUpdate, Update, Interact e OnDrawGizmosSelected
+    // do seu script original, pois não são mais necessários para a lógica de colisão.
 }
