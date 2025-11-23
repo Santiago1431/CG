@@ -57921,7 +57921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5394885cc1f89f2468d6fa8c58ed2fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  profile: {fileID: 0}
+  profile: {fileID: -1123504914, guid: 1e01b27c46fc3ab4cb6e40759693af21, type: 3}
   speechText: []
   actorName: 
 --- !u!61 &557574013
@@ -58791,7 +58791,7 @@ MonoBehaviour:
   dialogueObj: {fileID: 606659935}
   profile: {fileID: 549477044}
   speechText: {fileID: 591773895}
-  actorNameText: {fileID: 0}
+  actorNameText: {fileID: 250875494}
   playerMovementScript: {fileID: 904560660}
   playerAnimator: {fileID: 868955131}
   typingSpeed: 0.02
@@ -63739,8 +63739,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5394885cc1f89f2468d6fa8c58ed2fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
-  profile: {fileID: 0}
-  speechText: []
+  profile: {fileID: -1123504914, guid: 1e01b27c46fc3ab4cb6e40759693af21, type: 3}
+  speechText:
+  - Escaneando ...............................
+  - ' ...............................'
+  - Acesso Negado, Especie desconhecida
+  - Acesso Negado, Especie desconhecida
   actorName: 
 --- !u!61 &1458208408
 BoxCollider2D:
