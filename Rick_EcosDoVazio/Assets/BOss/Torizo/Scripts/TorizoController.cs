@@ -12,7 +12,7 @@ public class TorizoController : MonoBehaviour
     private int vidaAtual;
 
     private bool acordado = false;
-    private bool morto = false;
+    public bool morto = false;
     private bool atacando = false;
 
     public Transform pontoTiro;
@@ -23,6 +23,7 @@ public class TorizoController : MonoBehaviour
     public float tempoMinEntreAtaques = 2f;
     public float tempoMaxEntreAtaques = 5f;
     private float proximoAtaqueEm;
+
 
     void Awake()
     {
@@ -205,6 +206,7 @@ public class TorizoController : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         animator.SetBool("Morto", true);
         Destroy(gameObject, 1.5f);
+        //ativa passagem para proxima fase
     }
 
     void Flip()

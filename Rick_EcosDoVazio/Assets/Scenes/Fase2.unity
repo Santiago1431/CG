@@ -84418,7 +84418,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.7, y: -15.35, z: -10}
+  m_LocalPosition: {x: 11.061192, y: -5.199996, z: -10}
   m_LocalScale: {x: 0.2487, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -92133,7 +92133,7 @@ Transform:
   m_GameObject: {fileID: 904560657}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 50.7, y: -15.35, z: 0}
+  m_LocalPosition: {x: 9.4, y: -5.2, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -96462,7 +96462,7 @@ Transform:
   m_GameObject: {fileID: 1182407833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.7, y: -15.35, z: -10}
+  m_LocalPosition: {x: 9.4, y: -5.2, z: -10}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106269,6 +106269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TorizoController
   speed: 4
   vidaMaxima: 20
+  morto: 0
   pontoTiro: {fileID: 630687091}
   projetilPrefab: {fileID: 6923805131308516339, guid: 8e4ee4f4d86a4da45aa58b0fce9b6d7c, type: 3}
   player: {fileID: 904560659}
