@@ -21,6 +21,8 @@ public class BossController : MonoBehaviour
     private float healthRecoveryCooldown = 1f;
     private float healthRecoveryTimer;
 
+    public bool morto = false;
+
 
     void Start()
     {
@@ -58,6 +60,7 @@ public class BossController : MonoBehaviour
             if (currentHealth <= 0)
             {
                 Die();
+                morto = true;
             }
         }
 
