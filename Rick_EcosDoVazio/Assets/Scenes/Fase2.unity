@@ -85061,7 +85061,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.072844, y: -5.199996, z: -10}
+  m_LocalPosition: {x: 45.69999, y: -35.313263, z: -10}
   m_LocalScale: {x: 0.2487, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88684,7 +88684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossController
   healthBar: {fileID: 1857859527}
-  maxHealth: 100
+  maxHealth: 200
   attackRange: {fileID: 710816151}
   hitboxAtaque: {fileID: 1278385630}
   morto: 0
@@ -92721,7 +92721,7 @@ Transform:
   m_GameObject: {fileID: 904560657}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.4, y: -5.2, z: 0}
+  m_LocalPosition: {x: 45.7, y: -36.3, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -92882,7 +92882,7 @@ TrailRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Time: 0.5
   m_PreviewTimeScale: 1
   m_Parameters:
@@ -97380,7 +97380,7 @@ Transform:
   m_GameObject: {fileID: 1182407833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.4, y: -5.2, z: -10}
+  m_LocalPosition: {x: 45.7, y: -36.3, z: -10}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -180213,9 +180213,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 200
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 200
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

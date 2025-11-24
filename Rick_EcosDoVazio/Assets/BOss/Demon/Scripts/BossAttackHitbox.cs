@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BossAttackHitbox : MonoBehaviour
 {
-    public int dano = 1;
+    public int dano = 2;
 
      private bool podeDarDano = true;
 

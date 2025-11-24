@@ -10,15 +10,15 @@ public class BossController : MonoBehaviour
 
     // Referência à barra de saúde do chefe
     public Slider healthBar;
-    public int maxHealth = 100;
-    private int currentHealth;
+    public float maxHealth = 100;
+    private float currentHealth;
     private Animator animator;
 
     public Collider2D attackRange;
 
     public GameObject hitboxAtaque;
 
-    private float healthRecoveryCooldown = 1f;
+    private float healthRecoveryCooldown = 2.5f;
     private float healthRecoveryTimer;
 
     public bool morto = false;
@@ -74,7 +74,7 @@ public class BossController : MonoBehaviour
         animator.SetBool("Death", true);
         //espera a animação de morte terminar antes de destruir o objeto
 
-        Destroy(gameObject,1.42f);
+        Destroy(gameObject,2.6f);
         healthBar.gameObject.SetActive(false);
     }
 
@@ -102,7 +102,7 @@ public class BossController : MonoBehaviour
         if(currentHealth < maxHealth && healthRecoveryTimer <= 0)
         {
             healthRecoveryTimer = healthRecoveryCooldown;
-            currentHealth = Mathf.Min(currentHealth + 2.5f, maxHealth); 
+            currentHealth = Mathf.Min(currentHealth + 4f, maxHealth); 
             healthBar.value = currentHealth;
         }
     }
