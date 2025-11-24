@@ -50,6 +50,15 @@ public class PlayerController : MonoBehaviour
     [Tooltip("O colisor 2D usado no modo de rolagem (Circle)")]
     public Collider2D rollCollider;
 
+    [Header("Dash")]
+    public bool canDash = false;
+    private bool isDashing = false;
+    public float dashSpeed = 20f;
+    public float dashTime = 0.2f;
+    public float dashCooldown = 0.5f;
+
+    [SerializeField] TrailRenderer tr;
+
     // --- Variáveis privadas de controle ---
     private float timeOfLastPress = -1.0f; // Para o double-tap
     private bool isRolling = false; // Nossa variável de ESTADO
@@ -76,6 +85,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (isDashing)
+        {
+            return; // Pula o resto do Update durante o dash
+        }
 
 
         //// 1. Lógica de Mirar para Cima (Nova Funcionalidade)
@@ -145,6 +159,13 @@ public class PlayerController : MonoBehaviour
 
             rgb.linearVelocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rgb.linearVelocity.y);
 
+            //Dash
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && !isRolling)
+            {
+                StartCoroutine(Dash());
+            }
+
+
             // --- Código Corrigido (Preserva a escala) ---
             if (rgb.linearVelocity.x < 0)
             {
@@ -208,6 +229,8 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("shotFired");
         }
 
+        
+
         // 4. ATUALIZAÇÃO DO ANIMATOR
         animator.SetBool("isAimingUp", isAimingUp);
 
@@ -257,5 +280,24 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isRolling", false);
 
         Debug.Log("Voltou ao modo NORMAL!");
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+
+        float originalGravity = rgb.gravityScale;
+        rgb.gravityScale = 0f;
+
+        rgb.linearVelocity = new Vector2(transform.localScale.x * dashSpeed, 0);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashTime);
+
+        tr.emitting = false;
+        rgb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 }
