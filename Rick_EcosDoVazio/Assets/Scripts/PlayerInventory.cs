@@ -9,6 +9,7 @@ public class PlayerInventory : MonoBehaviour
     public bool canDoubleJump = false;
     public bool canShoot = false;
     public bool canRoll = false;
+    public bool canDash = false;
     
     [Header("Audio Manager")]
     public AudioManager audioManager;
@@ -65,6 +66,17 @@ public class PlayerInventory : MonoBehaviour
             canRoll = true;
             Debug.Log("Habilidade desbloqueada: Rolagem!");
             ShowTutorial("Nova Habilidade: ROLAGEM\nUse ↓ + ↓ para rolar !");
+        }
+    }
+
+    //Dash ability
+    public void UnlockDash()
+    {
+        if (!canDash)
+        {
+            canDash = true;
+            Debug.Log("Habilidade desbloqueada: Dash!");
+            ShowTutorial("Nova Habilidade: DASH\nPressione SHIFT esquerdo para dar um Dash!");
         }
     }
     // Variável para rastrear se o jogador tem a chave.

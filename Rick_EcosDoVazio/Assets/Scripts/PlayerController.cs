@@ -51,11 +51,11 @@ public class PlayerController : MonoBehaviour
     public Collider2D rollCollider;
 
     [Header("Dash")]
-    public bool canDash = false;
     private bool isDashing = false;
     public float dashSpeed = 20f;
     public float dashTime = 0.2f;
     public float dashCooldown = 0.5f;
+    private bool canDash = false;
 
     [SerializeField] TrailRenderer tr;
 
@@ -160,6 +160,7 @@ public class PlayerController : MonoBehaviour
             rgb.linearVelocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rgb.linearVelocity.y);
 
             //Dash
+            canDash = (inventory != null) ? inventory.canDash : false;
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && !isRolling)
             {
                 StartCoroutine(Dash());
