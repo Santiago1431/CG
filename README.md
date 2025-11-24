@@ -50,7 +50,7 @@ Projeto desenvolvido pelos discentes:
 | Maria Luiza A. Belarmino  | [Programador(a)] | [maluml.alves@gmail.com] |
 | Bianca Dyandra R. G. de Farias [cite: 2] | [Programador(a)] | [Biancagfarias@gmail.com] |
 | Eurico S. C. Rodrigues [cite: 2] | [Programador(a)] | [san14311982@gmail.com ] 
-| João Gabriel M. Lopes [cite: 2] | [Programador(a)] | [E-mail] |
+| João Gabriel M. Lopes [cite: 2] | [Programador(a)] | [joaogabrielmlopes@hotmail.com] |
 
 
 ✨ Esperamos que você se divirta explorando os **Ecos do Vazio** tanto quanto nós nos divertimos criando! ✨
