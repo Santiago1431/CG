@@ -1,6 +1,4 @@
 👾 RICK: ECOS DO VAZIO - Um Metroidvania de Sobrevivência em Ruínas Alienígenas 🎮
-<div align="center">
-<img src="URL_PARA_UMA_IMAGEM_BONITA_DO_SEU_JOGO" alt="Screenshot ou Logo do Jogo" width="600"/>
 
 ✨ Feito  para a matéria de Computação Gráfica na Universidade Federal de Alfenas.✨
 </div>
@@ -37,12 +35,10 @@ Nosso objetivo foi aplicar os conceitos de Computação Gráfica em um tema de *
 <!-- [ ### 🕹️ Controles
 | Ação | Tecla Padrão |
 | :--- | :--- |
-| **Movimentar Personagem** | W, A, S, D ou Setas [cite: 39] |
+| **Movimentar Personagem** | W, A, S, D ou Setas  |
 | **Pular** | Barra de Espaço |
-| **Atirar (Tiro Básico)** | [cite_start]Botão Esquerdo do Mouse / Tecla Z [cite: 39] |
-| **Usar Habilidade/Acessório** | Tecla Shift / Tecla E |
-| **Pausar/Abrir Menu** | ESC |
-| **Interagir/Coletar** | [cite_start]Tecla F (Usado para Coletar Itens [cite: 107] [cite_start]e solucionar Puzzles [cite: 44]) |
+| **Atirar ** | [cite_start]Botão Esquerdo do Mouse |
+| **Usar Habilidade/Acessório** | Tutorial em game |
 
 -->
 
@@ -51,12 +47,10 @@ Projeto desenvolvido pelos discentes:
 
 | Nome | Função | Contato |
 | :--- | :--- | :--- |
-| Maria Luiza A. Belarmino  | [Programador(a)] | [E-mail] |
+| Maria Luiza A. Belarmino  | [Programador(a)] | [maluml.alves@gmail.com] |
 | Bianca Dyandra R. G. de Farias [cite: 2] | [Programador(a)] | [E-mail] |
-| Eurico S. C. Rodrigues [cite: 2] | [Programador(a)] | [E-mail ] 
+| Eurico S. C. Rodrigues [cite: 2] | [Programador(a)] | [san14311982@gmail.com ] 
 | João Gabriel M. Lopes [cite: 2] | [Programador(a)] | [E-mail] |
 
-## 🎓 Agradecimentos
-Agradecemos ao professor(a) [Nome do Professor(a)] pelo suporte e por nos guiar através dos conceitos fundamentais de Computação Gráfica que tornaram este projeto possível!
 
 ✨ Esperamos que você se divirta explorando os **Ecos do Vazio** tanto quanto nós nos divertimos criando! ✨
