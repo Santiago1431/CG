@@ -1,0 +1,65 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+public class BulletController : MonoBehaviour
+{
+    public float bulletSpeed;
+    public Rigidbody2D theRB;
+
+    public Vector2 moveDir;
+
+    public GameObject impactEffect;
+
+    public int damageBullet;
+
+    void Update()
+    {
+        theRB.linearVelocity = moveDir * bulletSpeed;
+        damageBullet = 1;
+    }
+
+    // Detecta colisões com outros objetos e aplica dano se necessário
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (impactEffect != null)
+        {
+            Instantiate(impactEffect, transform.position, Quaternion.identity);
+        }
+
+        Destroy(gameObject);
+
+        TorizoController boss  = other.GetComponentInParent<TorizoController>();
+        if (boss != null)
+        {
+            boss.LevarDano(damageBullet, other.tag);
+            Destroy(gameObject);
+            return;
+        }
+
+        BossController bossDemon  = other.GetComponentInParent<BossController>();
+        if (bossDemon != null)
+        {
+            bossDemon.TakeDamage(damageBullet);
+            Destroy(gameObject);
+            return;
+        }
+
+        if (other.CompareTag("Enemy"))
+        {
+            PatrulEnemi enemy = other.GetComponent<PatrulEnemi>();
+            if (enemy != null)
+            {
+                enemy.DamageEnemy(damageBullet);
+            }
+        }
+
+
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
+    
+}
