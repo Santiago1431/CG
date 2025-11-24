@@ -6,23 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Fase1.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 3309b0715328fa243b4f3b148ad0e2ac
   - enabled: 1
     path: Assets/Scenes/cutscenes e intro/Cutscene1.unity
     guid: eb045509f89965d4eab45faf356ab8e1
   - enabled: 1
+    path: Assets/Scenes/Fase1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 26e039e5075e30b48b2ba340b6e2c879
   - enabled: 1
-    path: Assets/Scenes/EndGame 2.unity
-    guid: ccb0ef47e81669149910e104d5961f71
-  - enabled: 1
     path: Assets/Scenes/Fase2.unity
     guid: 1ebcf3fab31f54545a1d6eef1f13ca71
+  - enabled: 1
+    path: Assets/Scenes/EndGame 2.unity
+    guid: ccb0ef47e81669149910e104d5961f71
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0
