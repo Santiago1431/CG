@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TorizoController : MonoBehaviour
 {
+
+    public Slider healthBar;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -32,10 +35,14 @@ public class TorizoController : MonoBehaviour
         animator = GetComponent<Animator>();
         vidaAtual = vidaMaxima;
         SortearTempoAtaque();
+        healthBar.maxValue = vidaMaxima;
+        healthBar.value = vidaAtual;
+        healthBar.gameObject.SetActive(false);
     }
 
     void Update()
     {
+        healthBar.value = vidaAtual;
         if (morto || !acordado) return;
 
         if (!atacando)
@@ -165,6 +172,7 @@ public class TorizoController : MonoBehaviour
     {
         if (acordado || morto) return;
         StartCoroutine(AcordarDelay());
+        healthBar.gameObject.SetActive(true);
     }
 
     IEnumerator AcordarDelay()
@@ -206,7 +214,7 @@ public class TorizoController : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         animator.SetBool("Morto", true);
         Destroy(gameObject, 1.5f);
-        //ativa passagem para proxima fase
+        healthBar.gameObject.SetActive(false);
     }
 
     void Flip()

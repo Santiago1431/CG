@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class NewFase : MonoBehaviour
 {
 
+    public string Fase;
 
     //se o boss estiver morto quando o jogador colidir com esse objeto, a fase muda
     public TorizoController torizo;
@@ -18,7 +19,7 @@ public class NewFase : MonoBehaviour
         if (player != null && torizo.morto)
         {
             //Carrega a nova fase
-           SceneManager.LoadScene("Fase2");
+           SceneManager.LoadScene(Fase);
         }else
         {
             Debug.Log("Boss ainda está vivo! Derrote-o para avançar.");

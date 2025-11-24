@@ -18,7 +18,7 @@ public class NewFase1 : MonoBehaviour
         if (player != null && DemonBoss.morto)
         {
             //Carrega a nova fase
-           SceneManager.LoadScene("Fase2");
+           SceneManager.LoadScene("CutsceneFinal");
         }else
         {
             Debug.Log("Boss ainda está vivo! Derrote-o para avançar.");

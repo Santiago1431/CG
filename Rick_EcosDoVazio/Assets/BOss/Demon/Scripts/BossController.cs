@@ -75,6 +75,7 @@ public class BossController : MonoBehaviour
         //espera a animação de morte terminar antes de destruir o objeto
 
         Destroy(gameObject,1.42f);
+        healthBar.gameObject.SetActive(false);
     }
 
     //verifica o primeiro tiro para ativar a barra de vida
@@ -101,7 +102,7 @@ public class BossController : MonoBehaviour
         if(currentHealth < maxHealth && healthRecoveryTimer <= 0)
         {
             healthRecoveryTimer = healthRecoveryCooldown;
-            currentHealth = Mathf.Min(currentHealth + 5, maxHealth); 
+            currentHealth = Mathf.Min(currentHealth + 2.5f, maxHealth); 
             healthBar.value = currentHealth;
         }
     }
