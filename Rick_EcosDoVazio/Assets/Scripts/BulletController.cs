@@ -18,6 +18,7 @@ public class BulletController : MonoBehaviour
         damageBullet = 1;
     }
 
+    // Detecta colisões com outros objetos e aplica dano se necessário
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (impactEffect != null)
@@ -31,6 +32,14 @@ public class BulletController : MonoBehaviour
         if (boss != null)
         {
             boss.LevarDano(damageBullet, other.tag);
+            Destroy(gameObject);
+            return;
+        }
+
+        BossController bossDemon  = other.GetComponentInParent<BossController>();
+        if (bossDemon != null)
+        {
+            bossDemon.TakeDamage(damageBullet);
             Destroy(gameObject);
             return;
         }
