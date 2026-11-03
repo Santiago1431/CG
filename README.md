@@ -20,7 +20,7 @@ Nosso objetivo foi aplicar conceitos de Computação Gráfica em um tema de **fi
 ## 🌟 O que esperar?
 
 * **Gênero Metroidvania:** a progressão é desbloqueada pela obtenção de novas habilidades e itens, e há portais e portas trancadas que exigem chave.
-* **Estética visual sombria:** **pixel art 2D** com paleta dominada por tons frios (cinza, azul-marinho, roxo), reforçando a atmosfera de isolamento e ruína tecnológica.
+* **Estética retrofuturista:** **pixel art 2D** com paleta de roxos e magentas, vibrante na primeira fase e mais escura e profunda na segunda, reforçando a atmosfera de isolamento e ruína tecnológica.
 * **Combate tático:** jogabilidade focada em *hit-and-run* (atacar e recuar) contra inimigos patrulheiros, inimigos voadores que perseguem o jogador e **chefes** no fim de cada fase.
 * **Progressão de personagem:** habilidades que alteram mobilidade e poder de combate (veja a tabela abaixo).
 * **Cutscenes:** introdução, cena entre fases e final em vídeo, que contam a história de Rick.
@@ -39,12 +39,12 @@ Cada habilidade é obtida ao coletar o item correspondente nas fases, e o jogo e
 
 ### 🗺️ Fases
 
-| # | Cena | Chefe |
-| :-: | :--- | :--- |
-| 1 | **Fase 1** | **Torizo** |
-| 2 | **Fase 2** | **Demon** |
+| # | Zona | Cena | Chefe | Visual |
+| :-: | :--- | :--- | :--- | :--- |
+| 1 | **Setor de Energia Desativada** | `Fase1` | **Torizo** | Cores vibrantes (roxo e magenta) |
+| 2 | **Covil Alienígena** | `Fase2` | **Demon** | Tons mais escuros e profundos |
 
-O fluxo completo do jogo é: **Menu Principal → Introdução → Fase 1 → Cutscene → Fase 2 → Cutscene final → Fim de jogo.** Para avançar de fase é preciso derrotar o chefe.
+O fluxo completo do jogo é: **Menu Principal → Introdução → Setor de Energia Desativada → Cutscene → Covil Alienígena → Cutscene final → Fim de jogo.** Para avançar de fase é preciso derrotar o chefe.
 
 ## 🛠️ Tecnologias e Ferramentas
 
